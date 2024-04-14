@@ -26,7 +26,14 @@
 
 <body class="nk-body body-wider mode-onepage">
 
-    <div class="nk-wrap">
+    <div id="imageContainer" class="bg-black">
+        <!-- Content for the imageContainer div -->
+        <img src="images/robotbulls_token.png" style="width: 20%;" alt="Robot Bulls Token Image">
+        <img src="images/robotbulls_tokenWhite.png" style="width:20%" alt="">
+    </div>
+
+
+    <div class="nk-wrap" id="mainDiv">
         <!--            <header class="nk-header page-header is-transparent is-sticky is-shrink" id="header">-->
         <header class="nk-header page-header is-transparent is-shrink" id="header">
             <!-- Header @s -->
@@ -686,6 +693,8 @@
                         </div>
                     </div><!-- .block @e -->
                 </div>
+
+
             </section>
         </footer>
     </div>
@@ -700,11 +709,30 @@
     <script src="https://www.robotbulls.com/assets/js/uikit-icons.min.js"></script>
     <script src="https://www.robotbulls.com/assets/js/uikit.min.js"></script>
 
+    <!-- <script>
+        // Add event listener to the button
+        document.getElementById('redirectButton').addEventListener('click', function () {
+            // Redirect to another HTML page
+            window.location.href = 'robotbulls_token.html';
+        });
+    </script> -->
+
+
     <script>
-        // Check if the URL contains "/bull-token"
-        if (window.location.href.includes("/robotbulls_token")) {
-            // If the condition is true, replace the content of the body with the image
-            document.body.innerHTML = '<img src="/images/robotbulls_token.png" alt="Bull Token Image">';
+        // Get the current URL
+        const url = window.location.href;
+
+        // Check if the URL ends with '?robotbulls_token'
+        if (url.endsWith('?robotbulls_token')) {
+            // Show the imageContainer div
+            document.getElementById('imageContainer').style.display = 'block';
+            // Hide the mainDiv
+            document.getElementById('mainDiv').style.display = 'none';
+        } else {
+            // Show the mainDiv
+            document.getElementById('mainDiv').style.display = 'block';
+            // Hide the imageContainer div
+            document.getElementById('imageContainer').style.display = 'none';
         }
     </script>
 </body>
