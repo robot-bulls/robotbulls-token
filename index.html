@@ -28,8 +28,13 @@
 
     <div id="imageContainer" class="bg-black">
         <!-- Content for the imageContainer div -->
-        <img src="images/robotbulls_token.png" style="width: 20%;" alt="Robot Bulls Token Image">
-        <img src="images/robotbulls_tokenWhite.png" style="width:20%" alt="">
+        <img src="images/robotbulls_token.png" style="height:100vh; " alt="Robot Bulls Token Image">
+
+    </div>
+    <div id="whiteImageContainer" class="bg-black">
+        <!-- Content for the imageContainer div -->
+
+        <img src="images/robotbulls_tokenWhite.png" style="height:100vh" alt="">
     </div>
 
 
@@ -718,13 +723,19 @@
         if (url.endsWith('?robotbulls_token')) {
             // Show the imageContainer div
             document.getElementById('imageContainer').style.display = 'block';
+            document.getElementById('whiteImageContainer').style.display = 'none';
             // Hide the mainDiv
             document.getElementById('mainDiv').style.display = 'none';
-        } else {
+        } else if (url.endsWith('?robotbulls_whiteToken')) {
             // Show the mainDiv
-            document.getElementById('mainDiv').style.display = 'block';
-            // Hide the imageContainer div
+            document.getElementById('mainDiv').style.display = 'none';
             document.getElementById('imageContainer').style.display = 'none';
+            // Hide the imageContainer div
+            document.getElementById('whiteImageContainer').style.display = 'block';
+        } else {
+            document.getElementById('imageContainer').style.display = 'none';
+            document.getElementById('whiteImageContainer').style.display = 'none';
+            document.getElementById('mainDiv').style.display = 'block';
         }
     </script>
 </body>
